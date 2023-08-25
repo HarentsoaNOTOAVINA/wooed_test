@@ -1,0 +1,49 @@
+<template>
+    <svg
+        width="30"
+        height="30"
+        viewBox="0 0 18 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <rect
+            x="3.5"
+            y="4"
+            width="10"
+            height="1"
+            rx="0.5"
+            fill="var(--color-gray-icon)"
+        />
+        <circle cx="5.15" cy="7.65" r="1.15" stroke="var(--color-gray-icon)" />
+        <rect
+            x="7.40002"
+            y="7.15039"
+            width="6.1"
+            height="1"
+            rx="0.5"
+            fill="var(--color-gray-icon)"
+        />
+        <circle
+            cx="5.15"
+            cy="11.9508"
+            r="1.15"
+            stroke="var(--color-gray-icon)"
+        />
+        <rect
+            x="7.40002"
+            y="11.4512"
+            width="6.1"
+            height="1"
+            rx="0.5"
+            fill="var(--color-gray-icon)"
+        />
+        <rect
+            x="2.5"
+            y="2.5"
+            width="12"
+            height="12"
+            rx="1.5"
+            stroke="var(--color-gray-icon)"
+        />
+    </svg>
+</template>

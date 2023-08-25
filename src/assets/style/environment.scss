@@ -1,0 +1,75 @@
+ :root{
+
+    --color-envirnment-warn  : #ff98002e;
+    --color-envirnment-success : #5ec27a3d;
+    --color-envirnment-info  : #749fce3b;
+    }
+
+.environment{
+
+    &-title{
+        @apply mb-2 ;
+        color : var(--color-gray-icon);
+        font-size : 18px;
+        font-weight: 500;
+    }
+    &-container{
+        @apply w-full flex flex-col gap-y-2 p-2 rounded-[8px] h-full;
+        color : var(--color-gray-icon);
+        background-color: white;
+        min-height: 88vh;
+        .card{
+            &-container{
+                @apply flex flex-col gap-y-2 mt-5;
+
+                @screen md{
+                @apply w-full flex flex-row gap-x-2 justify-center;
+                }
+            }
+            &-response{
+                @apply w-[1/2];
+                border : 1px solid var(--color-gray);
+                border-radius : 20px;
+                font-weight: bold;
+                text-align: center;
+                background-color: white;
+            }
+            &-item{
+                border : 1px solid var(--color-gray);
+                @apply p-2 rounded-[8px] flex-col ;
+                &-title{
+                    
+                    font-weight: 500;
+                    flex-grow: 1;
+                }
+                &-header{
+                    @apply flex flex-row justify-center gap-5 mb-3;
+                }
+                @screen  md{
+                    @apply w-full p-10;
+                }
+            }
+        
+        }
+        @screen md{
+            @apply flex flex-col gap-x-10 py-5 ;
+        }
+        &-form{
+            
+        }
+    }
+    &-bg{
+        &-warn{
+            background-color: var(--color-envirnment-warn);
+        }
+        &-success{
+            background-color: var(--color-envirnment-success) ;
+    
+        }
+        &-info{
+            background-color: var(--color-envirnment-info);
+
+        }
+    }
+    
+}

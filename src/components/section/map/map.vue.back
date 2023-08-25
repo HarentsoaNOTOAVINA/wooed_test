@@ -1,0 +1,263 @@
+<script setup>
+import 'leaflet';
+import 'leaflet-easyprint';
+import {reactive, onMounted} from "vue";
+const data = reactive({
+            currentFeatureGroup : new L.FeatureGroup(),
+            PolygonIcon: null,
+            map: null,
+            style: {
+                width: props.width,
+                height: props.height,
+            },
+            ready : false,
+            polygone_obj: null,
+            polygone_arr: [],
+            drawedPolygon : null,
+            areaMeasurement : null,
+            options : {
+                zoomControl: false,
+                minZoom: 0,
+                maxZoom: 100,
+                trackResize: true,
+            },
+            drawOption : {
+                        polygon: {
+                            shapeOptions: {
+                                color: 'purple',
+                            },
+                            allowIntersection: false,
+                            drawError: {
+                                color: 'orange',
+                                timeout: 1000,
+                            },
+                            showArea: true,
+                            repeatMode: true,
+                        },
+                        rect: {
+                            shapeOptions: {
+                             color: 'green',
+                            },
+                        },
+                        polyline: false,
+                        circle: false,
+                        marker: false,
+                        circlemarker: false,
+                        simpleshape: false,
+                    },
+        })
+ const props = defineProps({
+     currentLayer : {
+            type : String,
+            default : ""
+        },
+        width : { 
+            type : [String, Number],
+            default : "100%",
+        }, 
+        height : {
+            type : [String, Number],
+            default : "50vw",
+        }, 
+        polyCadastre : {
+            type : [Array,Object,null],
+            default : null
+        }, 
+        centerLat :{
+        type : [String, Number],
+            default : 50.8503396,
+        }, 
+        centerLong : {
+            type : [String, Number],
+            default : 4.3517103,
+        },
+        needEventOnClick : {
+            type : Boolean,
+            default : false,
+        },
+        onClickEvent : {
+            type : Function,
+            default : ()=>(()=>{})
+        },
+        needMeasureArea : {
+            type : Boolean,
+            default : false,
+        },
+        getAreaMeasurment : {
+            type: Function,
+            default : function(e){
+                return e;
+            }
+        },
+        getPointlatlng : {
+            type : Function,
+            default : ((obj)=>obj)
+        },
+        polygonsGetter : {
+            type : Function,
+            default : ()=>{}
+        }
+
+
+ })
+
+ onMounted(() => {
+    convertPolygone();
+    renderMap();
+    fixMapElement();
+ });
+
+ const fixMapElement = ()=>{
+    //fix draw position element
+        const doc = document.getElementsByClassName(
+            'leaflet-control-container'
+        );
+        console.log('ty lesy', doc.item);
+        const drawElt = doc[0].getElementsByClassName(
+            'leaflet-top leaflet-left'
+        )[0];
+        const printElt = doc[0].getElementsByClassName(
+            'leaflet-top leaflet-right'
+        )[0];
+
+        drawElt.style.position = 'absolute';
+        drawElt.style.top = '10px';
+        drawElt.style.left = '-20px';
+        printElt.style.position = 'absolute';
+        printElt.style.top = '60px';
+        if (window.screen.width < 600) {
+            document.querySelector(
+                '.leaflet-draw-draw-polygon'
+            ).style.fontSize = '0.3rem';
+        }
+ }
+ const renderMap = ()=> {
+
+            if (!data.map) {
+                // const drawnItems = L.FeatureGroup();
+
+                //initiate map
+                initMap();
+                //add print plugin
+                addPrintPlugin();
+                // add polygon(cadastre)
+            if(data.polygone_obj){
+
+                    const polygon = L.polygon(props.polygone_arr, {
+                                                color: 'red',
+                                    }).addTo(data.map);
+                    polygon.on('click',(e)=>{
+                        console.log("DBG polygon",e.latlng);
+                    })
+                data.map.fitBounds(polygon.getBounds());
+            }
+                //control 
+                // const drawControl = new L.Control.Draw({
+                //     draw: data.drawOption,
+                //     edit: {
+                //         featureGroup: drawnItems,
+                //     },
+                // });
+                // data.map.addControl(drawControl);
+                
+                   
+                //map event handler
+                measureEventHandler();
+
+                if(props.needEventOnClick){
+                    onClickEvent();
+                }
+                data.ready;
+            }
+        }
+const initMap = ()=>{
+
+                data.map = L.map('map', data.options).setView(
+                    [props.centerLat, props.centerLong],
+                    13
+                );
+
+                L.tileLayer(
+                    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    {
+                        maxZoom: 19,
+                        attribution:
+                            '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+                    }
+                ).addTo(data.map);
+            
+}
+const getAreaM2 = (areaInHa)=>{
+            try{
+            let _ = areaInHa.split(' ');
+            return parseFloat(_[0])*10000;    
+            }catch(e){
+                console.log("[getAreaM2] error : ", e);
+            }
+        }
+const getArea = (layer,unit="m2")=>{
+                var latlngs = layer._defaultShape
+                        ? layer._defaultShape()
+                        : layer.getLatLngs(),
+                    area = L.GeometryUtil.geodesicArea(latlngs);
+                    
+                const readable = L.GeometryUtil.readableArea(area, true);
+                console.log('raw area', typeof readable);
+                if(unit === "m2"){
+                    return getAreaM2(readable);
+                }else{
+
+                    return readable;
+                }
+            }
+const addPrintPlugin =() =>{
+            const printPlugin= L.easyPrint({
+                    hidden: false,
+                    position: 'topright',
+                    sizeModes: ['A4Landscape'],
+                });
+                data.map.addControl(printPlugin);
+        }
+const clickEventHandler =() =>{
+            data.map.on('click', (e)=>{
+                console.debug("DBG event map",e.latlng);
+                props.getPointlatlng(e.latlng);
+            });
+        }
+const measureEventHandler =() =>{
+            const mesurFeatureGroup = new L.FeatureGroup();
+            drawinPolygon(mesurFeatureGroup);
+        }
+const drawinPolygon =(layerGroup) =>{
+            data.map.on(L.Draw.Event.CREATED, (e) => {
+                    const type = e.layerType,
+                        layer = e.layer;
+                    if (type === 'polygon') {
+                        const content = props.getArea(layer,"m2");
+                        props.getAreaMeasurment(content);
+                        if (content !== null) {
+                            // layer.bindPopup(content);
+                            layer
+                                .bindTooltip(`<h5>${content}</h5>`)
+                                .openTooltip();
+                        }
+
+                        //poligon drawed 
+                        data.drawedPolygon = e.layer._latlngs;
+                        props.polygonsGetter(data.drawedPolygon);
+                    }
+                    layerGroup.addLayer(layer);
+                    data.map.addLayer(layerGroup);
+                });
+        }
+const convertPolygone = () =>{
+            if(data.polygone_obj){
+                data.polygone_obj.forEach(({ lat, lng }) =>
+                data.polygone_arr.push([lat, lng])
+            );
+            }
+        }
+</script>
+<template>
+        <div id="map" width="100%" height="100"/>
+</template>

@@ -1,0 +1,59 @@
+<template>
+    <svg
+        width="18"
+        height="19"
+        viewBox="0 0 18 19"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <rect
+            x="2"
+            y="8.5"
+            width="4.66667"
+            height="4"
+            stroke="#606060"
+            stroke-width="0.6"
+        />
+        <rect
+            x="6.66663"
+            y="8.5"
+            width="4.66667"
+            height="4"
+            stroke="#606060"
+            stroke-width="0.6"
+        />
+        <rect
+            x="11.3334"
+            y="8.5"
+            width="4.66667"
+            height="4"
+            stroke="#606060"
+            stroke-width="0.6"
+        />
+        <path
+            d="M2 12.5H6.66667V16.5H4C2.89543 16.5 2 15.6046 2 14.5V12.5Z"
+            stroke="#606060"
+            stroke-width="0.6"
+        />
+        <rect
+            x="6.66663"
+            y="12.5"
+            width="4.66667"
+            height="4"
+            stroke="#606060"
+            stroke-width="0.6"
+        />
+        <path
+            d="M11.3334 12.5H16V14.5C16 15.6046 15.1046 16.5 14 16.5H11.3334V12.5Z"
+            stroke="#606060"
+            stroke-width="0.6"
+        />
+        <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4 2.5C2.89543 2.5 2 3.39543 2 4.5V8.5H16V4.5C16 3.39543 15.1046 2.5 14 2.5H4ZM7 5C6.72386 5 6.5 5.22386 6.5 5.5C6.5 5.77614 6.72386 6 7 6H11C11.2761 6 11.5 5.77614 11.5 5.5C11.5 5.22386 11.2761 5 11 5H7Z"
+            stroke="#606060"
+            stroke-width="0.6"
+        />
+    </svg>
+</template>

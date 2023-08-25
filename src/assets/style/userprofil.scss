@@ -1,0 +1,153 @@
+.account {
+    @apply p-[10px];
+    border-radius: 8px;
+    background-color: #fff;
+
+    &__profil {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        &__go-back {
+            width: 100%;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &__photo {
+            &__wrapper {
+                @apply flex justify-center items-center flex-col gap-[10px];
+            }
+
+            &__content {
+                border-radius: 50%;
+                @apply h-[140px] w-[140px] relative;
+                border: 1px solid var(--color-stroke-gray);
+
+                .img-container {
+                    @apply overflow-hidden;
+                    width: auto;
+                    height: inherit;
+                    border-radius: inherit;
+
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        height: 100%;
+                    }
+
+                    &__empty-logo {
+                        @apply flex items-center justify-center w-full h-full;
+                    }
+                }
+
+                .img-photo {
+                    width: 35px;
+                    height: 35px;
+                    border: 2px solid #fff;
+                    bottom: -6px;
+                    right: 10px;
+                    background-color: var(--color-gray);
+                    @apply flex items-center justify-center;
+                    position: absolute;
+                    border-radius: 50%;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        &__details {
+            hr {
+                margin: 10px 0;
+            }
+
+            &__row {
+                @apply flex flex-row justify-between items-center gap-[10px];
+
+                // &:deep() {
+                h2 {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                p {
+                    color: var(--color-gray-icon);
+                }
+
+                // }
+            }
+        }
+
+        &__actions {
+            @apply flex flex-col gap-[20px];
+
+            // &:deep() {
+            button {
+                width: 100%;
+                font-weight: 400;
+            }
+
+            &__info {
+                @apply flex flex-row gap-[20px];
+                // }
+            }
+        }
+    }
+
+    &__menu {
+        padding: 10px 0;
+
+        .active-menu {
+            background-color: var(--color-gray);
+        }
+
+        ul {
+            @apply flex flex-col gap-y-[2px];
+
+            li>div {
+                transition: all 0.3s ease-out;
+                padding: 10px;
+                @apply flex flex-row gap-[20px] items-center;
+
+                .active-menu {
+                    background-color: var(--color-gray);
+                }
+
+                // &:deep() {
+                h3 {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+
+                // }
+                &:first-child {
+
+                    &:hover {
+                        background-color: var(--color-gray);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    &__submenu {
+        border-left: 2px solid var(--color-stroke-gray);
+        margin-left: 50px;
+
+        &-item {
+            width: 25vw;
+            @apply py-2;
+
+            &:hover {
+                background-color: var(--color-gray);
+                cursor: pointer;
+            }
+        }
+    }
+}

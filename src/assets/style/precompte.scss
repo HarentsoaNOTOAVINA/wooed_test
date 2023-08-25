@@ -1,0 +1,165 @@
+.tax {
+    &__container {
+        @apply w-[100%];
+        &__loading {
+            &:deep() {
+                .custom-loader {
+                    background-color: transparent
+                }
+            }
+        }
+    }
+}
+.property-tax {
+    &__section {
+        @screen md {
+            height: calc(100vh - 100px);
+            @apply container;
+        }
+    }
+    &__container {
+        @apply h-full;
+    }
+    &__items-wrap {
+        @apply px-[14px] -mx-[14px];
+        @screen md {
+            height: calc(100vh - (100px + 62px + 90px));
+            @apply overflow-y-auto;
+            @include scrollbar;
+        }
+    }
+    &__items {
+        @apply mt-[18px];
+    }
+    &__title {
+        @apply text-[14px] text-grayIcon;
+        @screen md {
+            @apply text-[16px];
+        }
+    }
+    &__field-wrap {
+        @apply grid grid-cols-1;
+        @screen lg {
+            @apply grid-cols-2 gap-[24px];
+        }
+    }
+    &__button {
+        @apply mb-[18px];
+    }
+    &__content {
+        @apply font-semibold text-[14px] text-grayIcon mb-[18px];
+        @screen md {
+            @apply text-[16px];
+        }
+    }
+    &__haschild {
+        @apply md:flex gap-[20px] md:w-full;
+    }
+
+    &__child {
+        @apply md:w-full;
+    }
+    &__form-item-wrap {
+        label {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            @apply text-black mb-[10px] flex items-center gap-x-[12px];
+            &:deep() {
+                svg {
+                    @apply w-[18px] h-[18px] cursor-pointer;
+                    &:hover path {
+                        @apply transition-all;
+                        &:first-child {
+                            @apply fill-white;
+                        }
+                        &:last-child {
+                            @apply fill-primary;
+                        }
+                    }
+                }
+            }
+        }
+        &:deep() {
+            .custom-input__label-icon,
+            .date__label {
+                @apply hidden;
+            }
+            .switch {
+                label {
+                    @apply hidden;
+                }
+            }
+        }
+    }
+    &__form-item,
+    &__basic-amount {
+        gap: inherit !important;
+        @apply mb-[14px];
+        @screen md {
+            @apply mb-[18px];
+        }
+    }
+    &__btn-foot {
+        @apply flex justify-end mt-10;
+        .btn-foot {
+            @apply w-full;
+            @screen sm {
+                @apply w-auto;
+            }
+        }
+        &:deep() {
+            button {
+                @apply w-full;
+            }
+        }
+    }
+    &__head-items {
+        @apply flex justify-between mt-0 mb-[18px];
+    }
+    &__amount {
+        @apply flex flex-wrap items-center justify-between p-[14px] bg-gray text-grayIcon;
+        @screen md {
+            @apply p-[24px];
+        }
+    }
+    &__amount-content {
+        @apply text-[10px] font-semibold;
+        @screen md {
+            @apply text-[14px];
+        }
+    }
+    &__amount-value {
+        @apply block text-[16px] font-semibold;
+        @screen md {
+            @apply text-[24px];
+        }
+    }
+    &__basic-amount {
+        @apply px-[14px] bg-gray flex justify-between items-center min-h-[38px] rounded-[4px];
+    }
+    &__request {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 15px;
+        @apply flex text-primary gap-x-[10px] mb-[8px];
+    }
+    &__form-request {
+        @apply pl-[14px] ml-[24px] my-[24px] border-l-[1px] border-gray;
+    }
+}
+
+.__hr {
+    @apply text-gray;
+}
+.fadeHeight-enter-active,
+.fadeHeight-leave-active {
+    transition: all 0.5s;
+    max-height: 300px;
+}
+.fadeHeight-enter,
+.fadeHeight-leave-to {
+    opacity: 0;
+    max-height: 0px;
+    @apply overflow-y-hidden;
+}

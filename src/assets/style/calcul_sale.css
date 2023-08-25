@@ -1,0 +1,90 @@
+.sale {
+  @apply overflow-hidden;
+}
+
+.sale .fade-slider-leave-active,
+.sale .fade-slider-enter-active {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sale .fade-slider-enter-from,
+.sale .fade-slider-leave-to {
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
+  opacity: 0;
+}
+
+.sale-content {
+  @apply pt-[10px];
+}
+
+.sale-content__choice {
+  @apply mb-[20px];
+}
+
+.sale-content__choice__name {
+  @apply text-[var(--color-gray-icon)] font-semibold;
+}
+
+.sale-content__btn {
+  @apply flex justify-end;
+}
+
+.sale-content__btn:deep() div,
+.sale-content__btn:deep() button {
+  @apply w-full md:w-auto;
+}
+
+.sale-content .__hr {
+  @apply mb-[10px] text-[var(--color-gray)];
+}
+
+.preview {
+  @apply mt-[20px];
+}
+
+.preview__chart-graph {
+  max-height: 350px;
+}
+
+.preview .chart-actions {
+  @apply my-[20px] flex flex-col sm:flex-row gap-[10px] justify-center;
+}
+
+.preview .chart-actions:deep() button {
+  @apply w-full;
+}
+
+.preview .chart-actions .light:deep() button {
+  @apply bg-[var(--color-secondary)];
+}
+
+.preview__simple__body__section {
+  @apply border-b border-b-[var(--color-gray)] pb-[10px];
+}
+
+.preview__simple__body__section--multiple {
+  @apply md:grid flex flex-col gap-[10px] grid-cols-2;
+}
+
+.preview__simple__body__elt {
+  @apply bg-gray p-[10px] rounded-[4px] flex justify-between items-center;
+}
+
+.preview__simple__body__elt__amount {
+  @apply flex items-center font-semibold gap-2;
+}
+
+.preview__simple__body__elt__amount span:last-child {
+  @apply text-[18px];
+}
+
+.preview .total {
+  @apply text-[18px] font-semibold uppercase bg-[var(--color-primary)] text-[#FFF];
+}
+
+.preview__chart-view {
+  @apply mt-[20px];
+}
+/*# sourceMappingURL=calcul_sale.css.map */

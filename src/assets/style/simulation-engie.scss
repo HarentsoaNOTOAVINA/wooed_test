@@ -1,0 +1,53 @@
+.wrapper-card {
+    @apply bg-white rounded-[20px] w-full;
+    min-height: calc(100vh - 62px - 40px);
+    &__header {
+        @apply p-[20px] bg-[#fafafa] flex justify-between items-center;
+        border-radius: 20px 20px 0 0;
+        &:deep() {
+            button {
+                @apply flex items-center;
+            }
+        }
+        &__title {
+            @apply text-secondary text-[22px];
+        }
+    }
+    &__body {
+        @apply md:p-[30px] p-[10px] min-h-[784px] flex justify-center items-center;
+        .choice {
+            &-item {
+                @apply flex flex-col justify-center gap-[20px] w-[200px] items-center;
+                &__icon {
+                    @apply bg-primary h-[100px] w-[100px] flex justify-center items-center rounded-[50%] hover:cursor-pointer;
+                    &:hover svg {
+                        @apply scale-[1.2];
+                    }
+                }
+                &__desc {
+                    @apply flex justify-center flex-col items-center;
+                    span {
+                        @apply font-semibold text-[20px] text-secondary;
+                    }
+                    hr {
+                        @apply text-[var(--color-stroke-gray)];
+                    }
+                    &-info {
+                        @apply text-[var(--color-gray-icon)];
+                    }
+                }
+                &:deep() {
+                    svg {
+                        @apply w-[50px] h-[50px] transition-all;
+                        path {
+                            @apply fill-white;
+                        }
+                    }
+                }
+            }
+            &-list {
+                @apply w-full flex flex-col md:flex-row gap-[20px] justify-evenly items-center;
+            }
+        }
+    }
+}

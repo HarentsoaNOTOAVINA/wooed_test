@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    .ant-menu-submenu {
+        >ul {
+            padding-bottom: 15px !important;
+        }
+
+        .ant-menu-item {
+            height: auto;
+            line-height: normal;
+        }
+    }
+
+    .ant-menu-horizontal>.ant-menu-item::after,
+    .ant-menu-horizontal>.ant-menu-submenu::after {
+        bottom: -14px;
+        width: 100%;
+        left: 0;
+    }
+
+    .ant-menu-horizontal>.ant-menu-item-selected {
+        a {
+            color: var(--color-primary);
+        }
+    }
+}
+
+.ant-menu-horizontal>.ant-menu-item a:hover {
+    color: var(--color-primary);
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-open::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-open::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-selected::after {
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.ant-menu-light .ant-menu-submenu-title,
+.ant-menu-item a {
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: var(--color-primary) !important;
+    }
+}
+
+.ant-menu-light .ant-menu-item:hover,
+.ant-menu-light .ant-menu-item-active {
+    color: var(--color-primary) !important;
+}
+
+.app-scrollbar {
+    scrollbar-color: var(--color-primary) var(--color-gray);
+    scrollbar-width: thin;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 4px;
+        padding-left: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background-color: var(--color-gray);
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: 10px;
+    }
+}
+
+.nav-immogo {
+    @screen lg {
+        display: none !important;
+    }
+}
+
+.submenu-header-nav {
+    body & {
+        margin: 0 !important;
+
+        .ant-menu-item-group-title {
+            display: none;
+        }
+
+        .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+            background-color: var(--color-gray);
+            border-radius: 4px;
+        }
+
+        .ant-menu-item {
+            height: 35px;
+            @apply flex items-center;
+        }
+
+        .ant-menu-item-selected a,
+        .ant-menu-item-selected a:hover {
+            color: var(--color-secondary);
+        }
+
+        .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-selected {
+            color: var(--color-secondary);
+        }
+    }
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+@mixin hoverButtonDark {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
+    transition: all 0.25s ease;
+    @apply bg-blend-lighten transition;
+
+    &:hover {
+        transition: all 0.25s ease;
+        @apply bg-blend-darken transition;
+    }
+}
+
+@mixin hoverButtonLight {
+    background-image: linear-gradient(rgba(250, 250, 250, 0.1) 0 0);
+    transition: all 0.25s ease;
+    @apply bg-blend-darken transition;
+
+    &:hover {
+        transition: all 0.25s ease;
+        @apply bg-blend-lighten transition;
+    }
+}
+
+@mixin scrollbar {
+    scrollbar-color: var(--color-primary) var(--color-gray);
+    scrollbar-width: thin;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        padding-left: 10px;
+        transform: scale(1.1);
+        @apply cursor-pointer;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background-color: var(--color-gray);
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: 10px;
+        @apply transition-all;
+
+        &:hover {
+            @apply bg-grayIcon transition-all;
+            // @include hoverButtonDark();
+        }
+    }
+}
+
+.separator {
+    @apply mb-[20px];
+    border: 1px solid var(--color-gray);
+}
+
+/* ant time picker */
+.ant-picker-dropdown {
+    .ant-picker-ok {
+        .ant-btn-primary {
+            border: none;
+            background-color: var(--color-primary);
+        }
+    }
+}
+
+/* end ant time picker */
+
+/* Start Popconfirm */
+.ant-popconfirm {
+    .ant-btn {
+        @apply h-auto rounded-[4px] text-[14px] py-[6px] px-[20px] bg-gray border-none;
+        @include hoverButtonDark();
+
+        &:hover {
+            @apply text-black;
+        }
+
+        &-primary {
+            @apply bg-primary;
+
+            &:hover {
+                @apply text-white;
+            }
+        }
+    }
+}
+
+/* Start Popconfirm */
+/* Max container */
+#app .max-container {
+    @apply max-w-full w-full;
+}
+
+/* Max container */
+
+/* Dropdown select multiplpe */
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    @apply bg-gray;
+
+    svg {
+        @apply fill-primary;
+    }
+}
+
+/* Dropdown select multiplpe */
+
+/* Dropdown select Whitespace */
+.ant-select-item-option-content {
+    @apply whitespace-normal;
+}
+
+/* Dropdown select Whitespace */
+
+body {
+    @include scrollbar();
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        padding-left: 0;
+    }
+}
+
+.__hr {
+    @apply mt-[5px] mb-[5px] text-gray w-full;
+}
+
+@layer components {
+    .place-content {
+        &-8px {
+            @apply flex flex-col gap-[10px];
+        }
+
+        &-10px {
+            @apply flex flex-col gap-[10px];
+        }
+
+        &-12px {
+            @apply flex flex-col gap-[12px];
+        }
+
+        &-14px {
+            @apply flex flex-col gap-[14px];
+        }
+
+        &-18px {
+            @apply flex flex-col gap-[18px];
+        }
+
+        &-24px {
+            @apply flex flex-col gap-[24px];
+        }
+    }
+}
+
+/* Modal */
+.ant-modal-body {
+    max-height: calc(100vh - 201px);
+    @apply overflow-y-auto;
+    @include scrollbar;
+}
+
+/* Modal */
+
+/* Fade */
+
+/* *******Fade height******* */
+.fadeHeight-enter-active,
+.fadeHeight-leave-active {
+    transition: all 0.5s;
+    max-height: 300px;
+}
+
+.fadeHeight-enter,
+.fadeHeight-leave-to {
+    opacity: 0;
+    max-height: 0px;
+    @apply overflow-y-hidden;
+}
+
+/* *******Fade height******* */
+/* *******Fade step******* */
+.fade-step-enter-active,
+.fade-step-leave-active {
+    transition: all 0.3s ease-in-out;
+}
+
+.fade-step-enter-from,
+.fade-step-leave-to {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+/* *******Fade step******* */
+
+/* Fade */

@@ -1,0 +1,47 @@
+<template>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        :width="iconSize"
+        :height="iconSize"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 512 512"
+    >
+        <path
+            fill="currentColor"
+            d="M474.444 19.857a20.336 20.336 0 0 0-21.592-2.781L33.737 213.8v38.066l176.037 70.414L322.69 496h38.074l120.3-455.4a20.342 20.342 0 0 0-6.62-20.743ZM337.257 459.693L240.2 310.37l149.353-163.582l-23.631-21.576L215.4 290.069L70.257 232.012L443.7 56.72Z"
+        />
+    </svg>
+</template>
+
+<script lang="ts" setup>
+    import { onMounted, PropType, ref } from 'vue';
+    const iconSize = ref('16');
+    const props = defineProps({
+        size: {
+            type: String as PropType<'xs' | 'sm' | 'md' | 'lg'>,
+            default: 'xs',
+        },
+    });
+    onMounted(() => {
+        switch (props.size) {
+            case 'xs':
+                iconSize.value = '16';
+                break;
+            case 'md':
+                iconSize.value = '30';
+
+                break;
+            case 'sm':
+                iconSize.value = '20';
+
+                break;
+            case 'lg':
+                iconSize.value = '50';
+
+                break;
+            default:
+                break;
+        }
+    });
+</script>
+

@@ -1,0 +1,43 @@
+version: 2.1
+
+requires-installed-packages: &requires-installed-packages
+    requires:
+        - test-our-code
+
+#create environement
+requires-node: &requires-node
+    docker:
+        - image: circleci/node
+
+jobs:
+    build:
+        docker:
+            - image: circleci/node
+
+        steps:
+            - checkout
+            - run: yarn install
+            - run: yarn add -D eslint @babel/eslint-parser
+            - run: yarn test
+#            - run: |
+#                      yarn run eslint --ext .js,.vue --ignore-pattern .gitignore --ignore-pattern '*.test.js' --ignore-pattern '*.spec.js' --ignore-pattern 'nuxt.config.*' --ignore-pattern 'static/*' --ignore-pattern 'asset/*' .
+#                      yarn lint -c ./.eslintrc --ext .vue,.js --fix --ignore-pattern ./gitignore  --ignore-pattern '*.spec.js' --ignore-pattern '*.test.js' .
+#                yarn test
+                # yarn lint --ext .vue,.js --debug --ignore-path ./.gitignore
+# si activer la commande suivant ne s'execute que si l'étape plus haut n'est pas sucess
+    
+
+
+
+#workflow declaration
+workflows:
+    version: 2.1
+    notify_deploy:
+        jobs:
+            - build:
+                filters:
+                    branches:
+                        only: /develop/
+#      - run-linter:
+#          <<: *requires-installed-packages
+

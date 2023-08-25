@@ -1,0 +1,138 @@
+.account {
+  @apply p-[10px];
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.account__profil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 20px;
+}
+
+.account__profil__go-back {
+  width: 100%;
+}
+
+.account__profil__go-back:hover {
+  cursor: pointer;
+}
+
+.account__profil__photo__wrapper {
+  @apply flex justify-center items-center flex-col gap-[10px];
+}
+
+.account__profil__photo__content {
+  border-radius: 50%;
+  @apply h-[140px] w-[140px] relative;
+  border: 1px solid var(--color-stroke-gray);
+}
+
+.account__profil__photo__content .img-container {
+  @apply overflow-hidden;
+  width: auto;
+  height: inherit;
+  border-radius: inherit;
+}
+
+.account__profil__photo__content .img-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+.account__profil__photo__content .img-container__empty-logo {
+  @apply flex items-center justify-center w-full h-full;
+}
+
+.account__profil__photo__content .img-photo {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #fff;
+  bottom: -6px;
+  right: 10px;
+  background-color: var(--color-gray);
+  @apply flex items-center justify-center;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.account__profil__photo__content .img-photo:hover {
+  cursor: pointer;
+}
+
+.account__profil__details hr {
+  margin: 10px 0;
+}
+
+.account__profil__details__row {
+  @apply flex flex-row justify-between items-center gap-[10px];
+}
+
+.account__profil__details__row h2 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.account__profil__details__row p {
+  color: var(--color-gray-icon);
+}
+
+.account__profil__actions {
+  @apply flex flex-col gap-[20px];
+}
+
+.account__profil__actions button {
+  width: 100%;
+  font-weight: 400;
+}
+
+.account__profil__actions__info {
+  @apply flex flex-row gap-[20px];
+}
+
+.account__menu {
+  padding: 10px 0;
+}
+
+.account__menu .active-menu {
+  background-color: var(--color-gray);
+}
+
+.account__menu ul {
+  @apply flex flex-col gap-y-[2px];
+}
+
+.account__menu ul li > div {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  padding: 10px;
+  @apply flex flex-row gap-[20px] items-center;
+}
+
+.account__menu ul li > div .active-menu {
+  background-color: var(--color-gray);
+}
+
+.account__menu ul li > div h3 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.account__menu >ul>li>div:first-child:hover {
+  background-color: var(--color-gray);
+  cursor: pointer;
+}
+
+.account__submenu {
+  border-left: 2px solid var(--color-stroke-gray);
+  margin-left: 50px;
+}
+
+/*# sourceMappingURL=userprofil.css.map */

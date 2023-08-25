@@ -1,0 +1,125 @@
+{
+    "detailLocation": {
+        "address": "Av. de la Couronne 330C, 1050 Ixelles, Belgique",
+        "country": "Belgique",
+        "codeCountry": "BE",
+        "latitude": 50.8243071,
+        "longitude": 4.3860789,
+        "municipality": "Ixelles",
+        "codeMunicipality": "Ixelles",
+        "postalCode": "1050",
+        "region": "Bruxelles",
+        "codeRegion": "Bruxelles"
+    },
+    "propertyType": 4,
+    "roomcount": -1,
+    "surface": 0,
+    "operationType": "sale",
+    "transactionType": "Vente publique volontaire",
+    "title": "zazaz",
+    "disponibility": "A partir de",
+    "disponibilityTime": "2023-02-06T13:43:13.899Z",
+    "expirationDate": "",
+
+    "rentPrices": 0,
+    "rentalGuaranteeRequired": false,
+    "garanteeRentPrices": 0,
+    "effectiveDate": "",
+    "locationDuration": 0,
+    "linkVideos": "https://www.youtube.com/watch?v=c9VQye6P8k0&list=TLPQMTMwMjIwMjM1TpcJiw46sw&index=7",
+    
+    "thepropertyFeatures": [
+        {
+            "features": [
+                {
+                    "feature": 1
+                },
+                {
+                    "feature": 3
+                },
+                {
+                    "feature": 5
+                },
+                {
+                    "feature": 8
+                }
+            ]
+        }
+    ],
+    "otherOptions": [],
+    "options": [
+        {
+            "optionId": 1,
+            "name": "Terasse",
+            "callGarden": false,
+            "costGarden": 0,
+            "garageNumberPlace": 0
+        },
+        {
+            "optionId": 3,
+            "name": "Meublé",
+            "callGarden": false,
+            "costGarden": 0,
+            "garageNumberPlace": 0
+        },
+        {
+            "optionId": 5,
+            "name": "Garage",
+            "callGarden": false,
+            "costGarden": 0,
+            "garageNumberPlace": 0
+        }
+    ],
+    "bedroomcount": 0,
+    "bathroomcount": 1,
+    "chambercaracteristics": [
+        {
+            "surface": "45",
+            "glassType": "Autre",
+            "lastRenovation": "",
+            "heatingType": "Mazout",
+            "heating": "Radiateur",
+            "otherglassType": "Blindé"
+        }
+    ],
+    "waterRoomCaracteristic": [
+        {
+            "typeWater": "Salle de bain",
+            "surface": "10",
+            "glassType": "Simple",
+            "heatingType": "Chauffe eau"
+        }
+    ],
+    "boilerType": "mazout",
+    "boilerInstallationTime": "",
+    "certnumber": "200",
+    "annualenergy": "10",
+    "primaryenergy": "100",
+    "details": "zazazazaz description",
+    "syndic": "",
+    "syndicsResponse": null,
+    "minutes": [],
+    "amountOfCharge": 0,
+    "notary": 23,
+    "cadastre": "3000",
+    "livingArea": "1000",
+    "cadastralArea": "450",
+    "startPrice": "200000000",
+    "floorPrice": "1000",
+    "startSaleDate": "8/2/2023",
+    "endSaleDate": "5/2/2023",
+    "visitingHours": [
+        {
+            "availabilityDay": "Mardi",
+            "availabilityHourMin": "02:00:00",
+            "availabilityHourMax": "04:00:00",
+            "weekNumber": 1
+        },
+        {
+            "availabilityDay": "Mercredi",
+            "availabilityHourMin": "05:00:00",
+            "availabilityHourMax": "07:00:00",
+            "weekNumber": 2
+        }
+    ]
+}
